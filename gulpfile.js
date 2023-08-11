@@ -76,16 +76,16 @@ const imageminPngquant = require("imagemin-pngquant");
 const imageminSvgo = require("imagemin-svgo");
 const imgImagemin = () => {
     return src(srcPath.img)
-    .pipe(imagemin([
-        imageminMozjpeg({quality: 80}),
-        imageminPngquant(),
-        imageminSvgo({plugins: [{removeViewbox: false}]})
+        .pipe(imagemin([
+            imageminMozjpeg({ quality: 80 }),
+            imageminPngquant(),
+            imageminSvgo({ plugins: [{ removeViewbox: false }] })
         ],
-        {
-            verbose: true
-        }
-    ))
-    .pipe(dest(destPath.img))
+            {
+                verbose: true
+            }
+        ))
+        .pipe(dest(destPath.img))
 }
 
 // ファイルの変更を検知
